@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Spaceland</title>
+
+  <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles/style.css" media="all">
+</head>
+<body>
+
+  <h1>Spaceland</h1>
+  <p id="bigFish">change me</p>
+
+  <!-- Firebase starter script BEGIN -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBPubz7qBtFbRowcHDmEgnhc-hSYZw4af0",
+    authDomain: "space-land.firebaseapp.com",
+    databaseURL: "https://space-land.firebaseio.com",
+    projectId: "space-land",
+    storageBucket: "space-land.appspot.com",
+    messagingSenderId: "384163793922"
+  };
+  firebase.initializeApp(config);
+
+  //create a
+  var bigFish = document.getElementById('bigFish');
+  //create a db ref and create a child location to the text location
+  var dbRef = firebase.database().ref().child('text');
+  //synchronize changes using the 'on' function
+  dbRef.on('value', snap => bigFish.innerText = snap.val());
+
+  </script> -->
+  <!-- Firebase starter script END -->
+
+  <div class="container">
+    <input id="txtEmail" type="email" placeholder="Email">
+    <input id="txtPassword" type="password" placeholder="Password">
+    <div>
+      <button id="btnLogin" class="btn-blue">Log in</button>
+      <button id="btnSignup" class="btn-white">Sign up</button>
+
+      <button id="btnLogout" class="btn hide">Log out</button>
+    </div>
+  </div>
+
+<script scr="app.js"></script>
+
+</body>
+</html>

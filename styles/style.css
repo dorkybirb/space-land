@@ -1,0 +1,29 @@
+input, button {
+  margin: 8px;
+}
+
+button {
+  border-radius: 4px;
+  padding: 8px;
+  border: none;
+  font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.btn-blue {
+  color: white;
+  background-color: blue;
+}
+
+.btn-white {
+  color: blue;
+  background-color: white;
+  border: 1px solid blue;
+}
+
+.hide {
+  display: none;
+}
