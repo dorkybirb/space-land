@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-  console.log("doc is ready!"); //checks if this is right
+  // console.log("doc is ready!"); //checks if this is right
 
-  // (function() {
+  //------------ Firebase starter script BEGIN
     // Initialize Firebase
     var config = {
       apiKey: "AIzaSyBPubz7qBtFbRowcHDmEgnhc-hSYZw4af0",
@@ -13,8 +13,19 @@ $(document).ready(function(){
       messagingSenderId: "384163793922"
     };
     firebase.initializeApp(config);
+    // Firebase starter script END ------------
 
+    //------------ Realtime db demo BEGIN
+    var bigFish = document.getElementById('bigFish');
+    //create a db ref and create a child location to the text location
+    var dbRef = firebase.database().ref().child('text');
+    //synchronize changes using the 'on' function
+    dbRef.on('value', snap => bigFish.innerText = snap.val());
+    // Realtime db demo END ------------
+
+    //------------ User auth BEGIN
     //Get elements
+    const linkProfile = document.getElementById('linkProfile');
     const txtEmail = document.getElementById('txtEmail');
     const txtPassword = document.getElementById('txtPassword');
     const btnLogin = document.getElementById('btnLogin');
@@ -30,10 +41,25 @@ $(document).ready(function(){
       const email = txtEmail.value;
       const pass = txtPassword.value;
       const auth = firebase.auth();
-      //Log in
-      console.log("log in script is running!"); //checks if this is right
-      const promise = auth.signInWithEmailAndPassword(email, pass);
-      promise.catch(e => console.log(e.message));
+
+      //Modifying the auth persistence
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+        .then(function() {
+          // Existing and future Auth states are now persisted in the current
+          // session only. Closing the window would clear any existing state even
+          // if a user forgets to sign out.
+          // ...
+          // New sign-in will be persisted with session persistence.
+
+          const promise = auth.signInWithEmailAndPassword(email, pass); //log in
+          promise.catch(e => console.log(e.message));
+        })
+        .catch(function(error) {
+          // Handle Errors here.
+          // console.log(error.code);
+          console.log(error.message);
+        });
+
     });
 
     //Add signup event
@@ -44,7 +70,7 @@ $(document).ready(function(){
       const pass = txtPassword.value;
       const auth = firebase.auth();
       //Sign up
-      console.log("sign up script is running!"); //checks if this is right
+      console.log("sign up script is running");
       const promise = auth.createUserWithEmailAndPassword(email, pass);
       promise.catch(e => console.log(e.message));
     });
@@ -54,13 +80,19 @@ $(document).ready(function(){
       if(firebaseUser) { //user is logged in
         console.log(firebaseUser); //display user details
         btnLogout.classList.remove('hide');
+        linkProfile.classList.remove('hide');
         btnLogin.classList.add('hide');
         btnSignup.classList.add('hide');
+        txtEmail.classList.add('hide');
+        txtPassword.classList.add('hide');
       } else { //user is logged out
-        console.log('not logged in');
+        console.log('logged out');
         btnLogout.classList.add('hide');
+        linkProfile.classList.add('hide');
         btnLogin.classList.remove('hide');
         btnSignup.classList.remove('hide');
+        txtEmail.classList.remove('hide');
+        txtPassword.classList.remove('hide');
       }
     });
 
@@ -68,8 +100,6 @@ $(document).ready(function(){
     btnLogout.addEventListener('click', e => {
       firebase.auth().signOut();
     });
-
-    btnSignup.classList.add('hide');
-  // });
+    // User auth END ------------
 
 });

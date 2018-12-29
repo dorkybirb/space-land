@@ -7,13 +7,14 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
   <script src="scripts/app.js"></script>
-  <!-- <script type="text/javascript" src="scripts/test.js"></script> -->
   <link rel="stylesheet" type="text/css" href="styles/style.css" media="all">
 </head>
 <body>
 
   <h1>Spaceland</h1>
   <p id="bigFish">change me</p>
+
+  <a id="linkProfile" class="hide" href="profile.html">Profile</a>
 
   <div class="container">
     <input id="txtEmail" type="email" placeholder="Email">
@@ -40,13 +41,6 @@
     messagingSenderId: "384163793922"
   };
   firebase.initializeApp(config);
-
-  //create a
-  var bigFish = document.getElementById('bigFish');
-  //create a db ref and create a child location to the text location
-  var dbRef = firebase.database().ref().child('text');
-  //synchronize changes using the 'on' function
-  dbRef.on('value', snap => bigFish.innerText = snap.val());
 
   </script> -->
   <!-- Firebase starter script END -->
