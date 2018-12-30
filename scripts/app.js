@@ -64,13 +64,11 @@ $(document).ready(function(){
 
     //Add signup event
     btnSignup.addEventListener('click', e => {
-
       //Get email and pass
       const email = txtEmail.value;
       const pass = txtPassword.value;
       const auth = firebase.auth();
       //Sign up
-      console.log("sign up script is running");
       const promise = auth.createUserWithEmailAndPassword(email, pass);
       promise.catch(e => console.log(e.message));
     });
@@ -101,5 +99,20 @@ $(document).ready(function(){
       firebase.auth().signOut();
     });
     // User auth END ------------
+
+    //------------ Reading and writing data to DB BEGIN
+    function writeUserData(userId, dAacc, email) {
+    // Get a reference to the database service
+    var database = firebase.database();
+
+    // function writeUserData(userId, dAacc, email) {
+      firebase.database().ref('users/' + userId).set({
+        dAaccount: dAacc,
+        email: email,
+        userExp: 0,
+        coins: 0
+      });
+    }
+    // Reading and writing data to DB END ------------
 
 });

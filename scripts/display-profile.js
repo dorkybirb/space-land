@@ -17,11 +17,16 @@ $(document).ready(function(){
     const btnLogout = document.getElementById('btnLogout');
 
     //Add a realtime listener
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-      if(firebaseUser) { //user is logged in
-        console.log(firebaseUser); //display user details
+    firebase.auth().onAuthStateChanged(user => {
+      if(user) { //user is logged in
+        console.log(user); //display user details
         console.log('logged in user visited profile');
         btnLogout.classList.remove('hide');
+
+        var currentUID = firebase.auth().currentUser.uid;
+        if (user.coins != null)
+          writeInitialUserData(currentUID, 'm2u', user.email);
+
       } else { //user is logged out
         console.log('logged out');
         // redirects user to the home pg
@@ -34,5 +39,17 @@ $(document).ready(function(){
       firebase.auth().signOut();
     });
     // User auth END ------------
+
+    //------------ Reading and writing data to DB BEGIN
+    function writeInitialUserData(userId, dAacc, email) {
+      var database = firebase.database();
+      firebase.database().ref('users/' + userId).set({
+        dAaccount: dAacc,
+        email: email,
+        userExp: 0,
+        coins: 0
+      });
+    }
+    // Reading and writing data to DB END ------------
 
 });
