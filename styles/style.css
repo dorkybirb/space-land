@@ -11,6 +11,8 @@ button {
 
 button:hover {
   cursor: pointer;
+  transition-duration: 0.5s;
+  opacity: 0.75;
 }
 
 .btn-blue {
@@ -26,4 +28,9 @@ button:hover {
 
 .hide {
   display: none;
+}
+
+.container {
+  display: inline-flex;
+  flex-direction: column;
 }

@@ -1,20 +1,5 @@
 $(document).ready(function(){
 
-  // console.log("doc is ready!"); //checks if this is right
-
-  //------------ Firebase starter script BEGIN
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyBPubz7qBtFbRowcHDmEgnhc-hSYZw4af0",
-      authDomain: "space-land.firebaseapp.com",
-      databaseURL: "https://space-land.firebaseio.com",
-      projectId: "space-land",
-      storageBucket: "space-land.appspot.com",
-      messagingSenderId: "384163793922"
-    };
-    firebase.initializeApp(config);
-    // Firebase starter script END ------------
-
     //------------ Realtime db demo BEGIN
     var bigFish = document.getElementById('bigFish');
     //create a db ref and create a child location to the text location
@@ -62,16 +47,16 @@ $(document).ready(function(){
 
     });
 
-    //Add signup event
-    btnSignup.addEventListener('click', e => {
-      //Get email and pass
-      const email = txtEmail.value;
-      const pass = txtPassword.value;
-      const auth = firebase.auth();
-      //Sign up
-      const promise = auth.createUserWithEmailAndPassword(email, pass);
-      promise.catch(e => console.log(e.message));
-    });
+    // //Add signup event
+    // btnSignup.addEventListener('click', e => {
+    //   //Get email and pass
+    //   const email = txtEmail.value;
+    //   const pass = txtPassword.value;
+    //   const auth = firebase.auth();
+    //   //Sign up
+    //   const promise = auth.createUserWithEmailAndPassword(email, pass);
+    //   promise.catch(e => console.log(e.message));
+    // });
 
     //Add a realtime listener
     firebase.auth().onAuthStateChanged(firebaseUser => {

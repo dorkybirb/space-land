@@ -6,6 +6,7 @@
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+  <script src="scripts/firebase-app.js"></script>
   <script src="scripts/app.js"></script>
   <link rel="stylesheet" type="text/css" href="styles/style.css" media="all">
 </head>
@@ -16,34 +17,17 @@
 
   <a id="linkProfile" class="hide" href="profile.html">Profile</a>
 
-  <div class="container">
+  <div>
     <input id="txtEmail" type="email" placeholder="Email">
     <input id="txtPassword" type="password" placeholder="Password">
 
     <div>
       <button id="btnLogin" class="btn-blue">Log in</button>
-      <button id="btnSignup" class="btn-white">Sign up</button>
+      <a href="signup.html"><button id="btnSignup" class="btn-white">Sign up</button></a>
       <button id="btnLogout" class="hide">Log out</button>
       <!-- <button id="btnTest" class="btn-white">Test</button> -->
     </div>
   </div>
-
-  <!-- Firebase starter script BEGIN -->
-  <!-- <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
-  <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBPubz7qBtFbRowcHDmEgnhc-hSYZw4af0",
-    authDomain: "space-land.firebaseapp.com",
-    databaseURL: "https://space-land.firebaseio.com",
-    projectId: "space-land",
-    storageBucket: "space-land.appspot.com",
-    messagingSenderId: "384163793922"
-  };
-  firebase.initializeApp(config);
-
-  </script> -->
-  <!-- Firebase starter script END -->
 
 </body>
 </html>
