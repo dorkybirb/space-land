@@ -30,7 +30,11 @@ button:hover {
   display: none;
 }
 
-.container {
+.container, .nav {
   display: inline-flex;
   flex-direction: column;
+}
+
+.nav a {
+  margin: 8px;
 }

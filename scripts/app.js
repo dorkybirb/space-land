@@ -11,6 +11,7 @@ $(document).ready(function(){
     //------------ User auth BEGIN
     //Get elements
     const linkProfile = document.getElementById('linkProfile');
+    const linkSpace = document.getElementById('linkSpace');
     const txtEmail = document.getElementById('txtEmail');
     const txtPassword = document.getElementById('txtPassword');
     const btnLogin = document.getElementById('btnLogin');
@@ -64,6 +65,7 @@ $(document).ready(function(){
         console.log(firebaseUser); //display user details
         btnLogout.classList.remove('hide');
         linkProfile.classList.remove('hide');
+        linkSpace.classList.remove('hide');
         btnLogin.classList.add('hide');
         btnSignup.classList.add('hide');
         txtEmail.classList.add('hide');
@@ -72,6 +74,7 @@ $(document).ready(function(){
         console.log('logged out');
         btnLogout.classList.add('hide');
         linkProfile.classList.add('hide');
+        linkSpace.classList.add('hide');
         btnLogin.classList.remove('hide');
         btnSignup.classList.remove('hide');
         txtEmail.classList.remove('hide');
