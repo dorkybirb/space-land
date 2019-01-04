@@ -38,3 +38,7 @@ button:hover {
 .nav a {
   margin: 8px;
 }
+
+label {
+  margin: 4px;
+}
