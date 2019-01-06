@@ -12,6 +12,7 @@ $(document).ready(function(){
     //Get elements
     const linkProfile = document.getElementById('linkProfile');
     const linkSpace = document.getElementById('linkSpace');
+    const linkPost = document.getElementById('linkPost');
     const txtEmail = document.getElementById('txtEmail');
     const txtPassword = document.getElementById('txtPassword');
     const btnLogin = document.getElementById('btnLogin');
@@ -66,6 +67,7 @@ $(document).ready(function(){
         btnLogout.classList.remove('hide');
         linkProfile.classList.remove('hide');
         linkSpace.classList.remove('hide');
+        linkPost.classList.remove('hide');
         btnLogin.classList.add('hide');
         btnSignup.classList.add('hide');
         txtEmail.classList.add('hide');
@@ -75,6 +77,7 @@ $(document).ready(function(){
         btnLogout.classList.add('hide');
         linkProfile.classList.add('hide');
         linkSpace.classList.add('hide');
+        linkPost.classList.add('hide');
         btnLogin.classList.remove('hide');
         btnSignup.classList.remove('hide');
         txtEmail.classList.remove('hide');

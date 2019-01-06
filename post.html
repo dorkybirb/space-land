@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Spaceland</title>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+  <script src="scripts/firebase-app.js"></script>
+  <script src="scripts/posting.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles/style.css" media="all">
+</head>
+<body>
+
+  <h1>Spaceland</h1>
+  <a href="index.html">Home</a>
+
+  <div class="nav">
+    <a id="linkProfile" class="hide" href="profile.html">Profile</a>
+    <a id="linkSpace" class="hide" href="space.html">To Space</a>
+  </div>
+
+  <div class="container">
+    <label for="story">Title your adventure:</label>
+    <input id="titleText" type="text" placeholder="Title">
+
+    <label for="story">Tell us your story:</label>
+    <textarea id="bodyText" name="story"
+    rows="5" cols="30" placeholder="Write your adventure here"></textarea>
+
+    <button id="btnSubmit">Post</button>
+  </div>
+
+</body>
+</html>

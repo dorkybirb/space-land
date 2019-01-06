@@ -15,6 +15,7 @@ $(document).ready(function(){
   if (!user) {
     // No user is signed in.
     //Redirect to home pg.
+    window.location.replace("index.html");
   }
 });
 
@@ -25,8 +26,8 @@ $(document).ready(function(){
     var articleData = {
       title: title,
       body: body,
-      uid: userId,
-      date_edited: firebase.database.ServerValue.TIMESTAMP
+      uid: firebase.auth().currentUser.uid,
+      date: firebase.database.ServerValue.TIMESTAMP
     };
 
     var key = firebase.database().ref('posts').push().key;
@@ -35,11 +36,10 @@ $(document).ready(function(){
 
     return firebase.database().ref().update(updates)
     .then(function(){
-      alert('Added ' + title);
+      console.log('Added: ' + title);
     })
     .catch(function(error) {
       console.log(error);
-      alert(error.message)
     });
   });
 
